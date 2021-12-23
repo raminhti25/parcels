@@ -1,0 +1,47 @@
+version: "3.7"
+services:
+  laravel:
+    build:
+      args:
+        user: ramin
+        uid: 1000
+      context: ./
+      dockerfile: ./parcel/Dockerfile
+    image: laravel
+    container_name: laravel-app
+    restart: unless-stopped
+    working_dir: /var/www/
+    volumes:
+      - ./parcel/:/var/www
+
+  db:
+    image: mysql:5.7
+    container_name: db-app
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: mysql
+      SERVICE_TAGS: dev
+      SERVICE_NAME: mysql
+    volumes:
+      - ./mysql:/docker-entrypoint-initdb.d
+
+  nginx:
+    image: nginx:alpine
+    container_name: nginx-app
+    restart: unless-stopped
+    ports:
+      - 8000:80
+    volumes:
+      - ./parcel:/var/www
+      - ./nginx:/etc/nginx/conf.d/
+
+  reactjs:
+   container_name: reactjs-app
+   build:
+    context: ./
+    dockerfile: ./parcel-ui/Dockerfile
+   ports:
+    - 3001:3000
+   volumes:
+    - './parcel-ui:/app'
+    - '/app/node_modules'

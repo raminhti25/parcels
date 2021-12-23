@@ -1,0 +1,44 @@
+form {
+    padding: 50px;
+}
+
+input, textarea {
+    width: 100%;
+
+    margin-bottom: 20px;
+}
+
+.required-icon {
+    color: red;
+}
+
+.button {
+    margin-top: 5px;
+    margin-left: 10px;
+    float: right;
+    font-size: 20px;
+    padding: 10px 60px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+}
+
+.cancel-button {
+    color: #000;
+}
+
+.bg-blue {
+    background-color: #0d6efd;
+}
+
+.bg-yellow {
+    background-color: #fcee09;
+}
+
+.bg-green {
+    background-color: green;
+}
+
+.color-black {
+    color: #000000;
+}

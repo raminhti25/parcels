@@ -1,0 +1,39 @@
+- This project contains of two folder, parcel as api provider and parcel-ui as frontend.
+
+- Running application:
+   - cd PHP-Test
+   - docker-compose build
+   - docker-compose up
+   - docker-compose exec laravel composer install
+   - docker-compose exec laravel php artisan migrate:fresh
+   - docker-compose exec laravel php artisan db:seed
+   - open http://localhost:3001/#/login
+
+- Senders and Bikers were defined in Database/Seeders/DatabaseSeeder
+     
+        - one sender:
+            [
+                'first'     => 'ramin',
+                'last'      => 'heshmati',
+                'email'     => 'raminhti@gmail.com',
+                'mobile'     => '+989361550458',
+                'password'   => '124578',
+            ]
+        - one bikder:
+            [
+                'first'     => 'George',
+                'last'      => 'Clooney',
+                'email'     => 'biker1@localhost.com',
+                'mobile'    => '0987654321',
+                'password'   => '124578'
+            ]     
+
+- Front end application is using reactjs framework
+
+Note: when sender loggs in, there are two links in the left sidebar, 'Parcels' and 'New Parcel', so if you cannot see them after log in, just reoload the page.       
+
+Note: if there is a problem was loading pages, just hard reload the page(ctrl + shift + f5)
+
+Note: for sender and biker there is just one application which in the login page it can be selected as 'sender' or 'biker'
+
+Note: if there was any problem with logout, delete 'accessToken' and 'role' keys from google Chrome/Application/localStorage and go to login page.
